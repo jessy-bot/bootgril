@@ -5,7 +5,7 @@ int main()
 	int i,j;
 	int ture;
 	scanf("%d %d",&wid,&len);
-	int map[wid][len];
+	int map[100][100];
 	for (i = 0;i < len ; i++)
 	{
 		for (j = 0 ; j < wid ;j ++)
@@ -13,7 +13,7 @@ int main()
 				scanf("%d",&map[i][j]);
 			}
  	}
- 	//读入二维数组
+ 	//读入二维数组,已检查无下标越界。 
 	 for (i = 0;i < len ;i ++)
 	 {
 	 	int min = map[i][0];
@@ -33,7 +33,7 @@ int main()
 			 		if (min < map[height][ture])
 			 		{
 			 			yes = 0;
-					 }
+					}
 					if (yes == 1 && height == len -1)
 					{
 						printf("(%d,%d)",i+1,ture+1);
@@ -47,3 +47,4 @@ int main()
 	  out :
 	return 0;
 }
+//Segmentation fault:段错误，检查是否有数组越界，指针异常，访问到不应该访问的内存区域.
